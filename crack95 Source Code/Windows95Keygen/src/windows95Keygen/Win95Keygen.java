@@ -60,17 +60,23 @@ public class Win95Keygen {
 	
 	/*
 	 * Last 7 digits of the key must add up to a sum mod 7 that == 0
+	 * Last digit of this partial key cannot be 0 or >=8
 	 * Else, recursively call function again to generate new seven digits
 	 */
 	
 	private static void lastSevenDigits() {
 		final int[] key2 = new int[7];
 		
-		for (int i = 0; i < 7; i++) {
+		for (int i = 0; i < 6; i++) {
 			Random rand = new Random();
 			int digit = rand.nextInt(bound);
 			key2[i] = digit;
 		}
+		
+		int digitSeven[] = {1,2,3,4,5,6,7};
+		Random randomSeventhDigit = new Random();
+		int digit7 = randomSeventhDigit.nextInt(digitSeven.length);
+		key2[6] = digitSeven[digit7];
 		
 		int sum = 0;
 		final int sumArray[] = new int [key2.length];
