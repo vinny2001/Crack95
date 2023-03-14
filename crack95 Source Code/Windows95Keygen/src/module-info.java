@@ -1,0 +1,2 @@
+module windows95Keygen {
+}
